@@ -6,18 +6,16 @@
 
 Usage:
 
-1. 【 网络 > 接口 > 全局网络选项 】 中的 【 IPv6 ULA 前缀 】 改为 2fff::/64
+1. 检查软件包是否安装 `ip6tables kmod-ipt-nat6 kmod-ip6tables kmod-ip6tables-extra`，如若没有，请 ssh 运行 `opkg update && opkg install ip6tables kmod-ipt-nat6 kmod-ip6tables kmod-ip6tables-extra` 安装
 
-~~2. 【LAN 接口 > DHCP 服务器 > IPv6 设置】：总是通告默认路由：√~~
-
-3. 运行 ipv6nat.sh 脚本
+2. 运行 ipv6nat.sh 脚本
 ```
 cd /tmp
 chmod +x ipv6nat.sh
 sh ipv6nat.sh
 ```
 
-4. 启用插件
+3. 启用插件
 
 
 
