@@ -5,7 +5,7 @@
 #     可在LEDE等基于OpenWrt的环境下配置IPv6支持。
 #
 #     Usage:
-#     cd /tmp
+#     cd /etc
 #     chmod +x ipv6.sh
 #     sh ipv6.sh
 #     只需要运行一次
