@@ -10,7 +10,7 @@ Usage:
 
 2. 运行 ipv6nat.sh 脚本
 ```
-cd /tmp
+cd /etc
 chmod +x ipv6nat.sh
 sh ipv6nat.sh
 ```
