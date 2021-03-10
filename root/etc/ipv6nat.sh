@@ -6,8 +6,8 @@
 #
 #     Usage:
 #     cd /etc
-#     chmod +x ipv6.sh
-#     sh ipv6.sh
+#     chmod +x ipv6nat.sh
+#     sh ipv6nat.sh
 #     只需要运行一次
 # -------------------------------------------------------------------
 
