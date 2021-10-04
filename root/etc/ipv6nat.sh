@@ -131,6 +131,10 @@ EOF
 # 5. Make the script executable and enable it    #修改权限，并生效
 chmod +x /etc/init.d/nat6
 /etc/init.d/nat6 enable
+/etc/init.d/nat6 start
+chmod +x /etc/init.d/nat6-helper
+/etc/init.d/nat6-helper enable
+/etc/init.d/nat6-helper start
 
 
 # 6. In addition, you may now disable the default firewall rule "Allow-ICMPv6-Forward" since it's not needed when masquerading is enabled
