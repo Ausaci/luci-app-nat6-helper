@@ -7,6 +7,7 @@ res=`ip -6 route | grep "default from 2"`
 gateway=`echo $res | awk '{print $5}'`
 interface=`echo $res | awk '{print $7}'`
 last_gw=$(ip -6 route | grep "2000::/3" | awk '{print $3}') #之前的网关地址
+#由于网络变动后，网关地址可能变更，所以需要先获取之前的网关凑成删除路由表命令
 
 if [ "$ACTION" = ifup ]; then
     ip -6 r add "2000::/3" via $gateway dev $interface
