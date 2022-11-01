@@ -25,6 +25,7 @@ setLan()
 	uci set dhcp.lan.ra='server'
 	uci set dhcp.lan.ra_default='1'
 	uci set dhcp.lan.ra_management='1'
+    uci delete dhcp.@dnsmasq[0].filter_aaaa
 	uci commit network
 	uci commit dhcp
     /etc/init.d/network restart
