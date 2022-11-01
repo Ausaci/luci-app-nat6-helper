@@ -8,7 +8,7 @@
 ### 方法一（推荐）
 1、检查【系统-软件包】是否安装 `ip6tables kmod-ipt-nat6`，如若没有，请 ssh 运行 `opkg update && opkg install ip6tables kmod-ipt-nat6` 安装  
 2、到[Releases](https://github.com/Atomseek/luci-app-nat6-helper/releases) 下载最新编译ipk，上传到路由器安装即可。安装教程可以参考[这个视频](https://www.bilibili.com/video/av464065982/)  
-3、在路由器管理页面的【服务】中找到nat6配置助手，首先点击一键配置按钮完成ULA的设置以及DHCPv6的设置。本插件默认配置ULA为`fd00::/64`。如果想让局域网设备优先ipv6上网，可以自行在【网络-接口】处，把ULA前缀修改为`dd00::/64`  
+3、在路由器管理页面的【服务】中找到nat6配置助手，首先点击一键配置按钮完成`ULA  DHCPv6  ipv6-dns服务器`的设置。本插件默认配置ULA为`fd00::/64`。如果想让局域网设备优先ipv6上网，可以自行在【网络-接口】处，把ULA前缀修改为`dd00::/64`  
 4、稍等配置完后网络重启，完成初始化设置后，在插件设置页面勾选启用，确认选定网口与【网络-接口】有ipv6的网口名称一致，然后保存并应用即可。  
 
 ### 方法二
