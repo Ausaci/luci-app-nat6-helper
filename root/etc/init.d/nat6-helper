@@ -20,8 +20,10 @@ last_gw=$(ip -6 route | grep "2000::/3" | awk '{print $3}')         #之前的�
 setLan() 
 {
     #一键设置ULA和DHCPv6和ipv6 dns服务器
-    uci set network.globals.ula_prefix='fd00::/64'
-    uci set network.wan6.dns='2400:3200::1 2400:da00::6666'
+    # uci set network.globals.ula_prefix='fd00::/64'
+    # uci set network.wan6.dns='2400:3200::1 2400:da00::6666'
+    uci set network.globals.ula_prefix='fd00:6666:6666::/64'
+    uci set network.wan6.dns='2001:4860:4860::8888 240c::6666'
     uci set network.wan6.peerdns='0'
     uci set network.wan6.reqaddress='try'
     uci set network.wan6.reqprefix='auto'
