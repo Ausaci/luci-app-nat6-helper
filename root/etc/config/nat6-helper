@@ -1,3 +1,5 @@
 config nat6-helper
 	option enabled '0'
 	option name 'wan6'
+	option ipv6ula 'dfff::/64'
+	option ipv6dns '2001:4860:4860::8888 240c::6666'

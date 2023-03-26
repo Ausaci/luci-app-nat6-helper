@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-nat6-helper
-PKG_VERSION:=v1.2
+PKG_VERSION:=v1.3
 PKG_RELEASE:=1
 
 PKG_LICENSE:=MIT License

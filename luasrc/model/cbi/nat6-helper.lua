@@ -14,12 +14,22 @@ enabled.rmempty = false
 name = s:option(Value, "name", translate("Interface"))
 name.rmempty = false
 name.default = "wan6"
-name.description = translate("默认为wan6，也可自行设置为有ipv6的网口名称，当该网卡变动时自动设置nat6")
+name.description = translate("默认为 wan6，也可自行设置为有 IPv6 的网口名称，当该网卡变动时自动设置 nat6")
+
+ipv6ula = s:option(Value, "ipv6ula", translate("IPv6 ULA 前缀"))
+ipv6ula.rmempty = false
+ipv6ula.default = "dfff::/64"
+ipv6ula.description = translate("设置的 IPv6 ULA 前缀，默认 dfff::/64")
+
+ipv6dns = s:option(Value, "ipv6dns", translate("IPv6 DNS"))
+ipv6dns.rmempty = false
+ipv6dns.default = "2001:4860:4860::8888 240c::6666"
+ipv6dns.description = translate("IPv6 DNS，多个 DNS 以空格分隔")
 
 init = s:option(Button, "init_button", translate("初始化"))
 init.inputtitle = translate("一键配置")
 init.inputstyle = "apply"
-init.description = translate("一键设置ULA和DHCPv6和ipv6-dns，并设置通告默认网关。<br />启用本插件前需执行一次，配置完毕后会重启一次网络，稍等片刻网络恢复再进行设置")
+init.description = translate("一键设置 DHCPv6, IPv6 ULA 前缀 和 IPv6 DNS，并设置通告默认网关。<br />启用本插件前及修改 IPv6 ULA 前缀、IPv6 DNS 后需执行一次，配置完毕后会重启一次网络，稍等片刻网络恢复再进行设置")
 function init.write(self, section)
     io.popen("/etc/init.d/nat6-helper setLan")
 end
