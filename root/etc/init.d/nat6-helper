@@ -24,7 +24,7 @@ setLan()
 {
   # 一键设置 ULA 和 DHCPv6 和 IPv6 DNS 服务器
   uci set network.globals.ula_prefix=$ipv6ula
-  uci set network.$interface_public.dns='$ipv6dns'
+  uci set network.$interface_public.dns="$ipv6dns"
   uci set network.$interface_public.peerdns='0'
   uci set network.$interface_public.reqaddress='try'
   uci set network.$interface_public.reqprefix='auto'

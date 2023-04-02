@@ -19,12 +19,25 @@ name.description = translate("默认为 wan6，也可自行设置为有 IPv6 的
 ipv6ula = s:option(Value, "ipv6ula", translate("IPv6 ULA 前缀"))
 ipv6ula.rmempty = false
 ipv6ula.default = "dfff::/64"
-ipv6ula.description = translate("设置的 IPv6 ULA 前缀，默认 dfff::/64")
+ipv6ula.description = translate("默认为 dfff::/64，同步修改全局网络选项中的 IPv6 ULA 前缀")
+function ipv6ula.write(self, section, value)
+    local uci = require "luci.model.uci".cursor()
+    uci:set("network", "globals", "ula_prefix", value)
+    uci:commit("network")
+    return Value.write(self, section, value)
+end
 
 ipv6dns = s:option(Value, "ipv6dns", translate("IPv6 DNS"))
 ipv6dns.rmempty = false
 ipv6dns.default = "2001:4860:4860::8888 240c::6666"
 ipv6dns.description = translate("IPv6 DNS，多个 DNS 以空格分隔")
+function ipv6dns.write(self, section, value)
+    local uci = require "luci.model.uci".cursor()
+    local interface_public = uci:get("nat6-helper", "nat6-helper", "name") or "wan6"
+    uci:set("network", interface_public, "dns", value)
+    uci:commit("network")
+    return Value.write(self, section, value)
+end
 
 init = s:option(Button, "init_button", translate("初始化"))
 init.inputtitle = translate("一键配置")

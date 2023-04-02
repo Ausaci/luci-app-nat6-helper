@@ -16,7 +16,7 @@ end
 
 function act_status()
 	local e={}
-	e.running=luci.sys.call("ip6tables -t nat -L | grep 'v6NAT' > /dev/null")==0
+	e.running=(luci.sys.call("ip6tables -t nat -L | grep 'v6NAT' > /dev/null")==0 and luci.sys.call("ip -6 route | grep '2000::/3' > /dev/null")==0)
 	luci.http.prepare_content("application/json")
 	luci.http.write_json(e)
 end
