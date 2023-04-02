@@ -24,7 +24,7 @@ setLan()
 {
   # 一键设置 ULA 和 DHCPv6 和 IPv6 DNS 服务器
   uci set network.globals.ula_prefix=$ipv6ula
-  uci set network.$interface_public.dns=$ipv6dns
+  uci set network.$interface_public.dns='$ipv6dns'
   uci set network.$interface_public.peerdns='0'
   uci set network.$interface_public.reqaddress='try'
   uci set network.$interface_public.reqprefix='auto'
@@ -43,7 +43,7 @@ start()
 {
 	[ $enable = "0" ] && exit 0
     # 设置最新网关
-    ip -6 r add default via $gateway dev $interface > /dev/null 2>&1
+    ip -6 r add "2000::/3" via $gateway dev $interface > /dev/null 2>&1
 
     # 设置 nat6
     ip6tables -t nat -A POSTROUTING -o $interface -m comment --comment "v6NAT" -j MASQUERADE
