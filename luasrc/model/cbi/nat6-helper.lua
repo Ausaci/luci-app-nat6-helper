@@ -42,7 +42,7 @@ end
 init = s:option(Button, "init_button", translate("初始化"))
 init.inputtitle = translate("一键配置")
 init.inputstyle = "apply"
-init.description = translate("一键设置 DHCPv6, IPv6 ULA 前缀 和 IPv6 DNS，并设置通告默认网关。<br />启用本插件前及修改 IPv6 ULA 前缀、IPv6 DNS 后需执行一次，配置完毕后会重启一次网络，稍等片刻网络恢复再进行设置")
+init.description = translate("一键设置 DHCPv6, IPv6 ULA 前缀 和 IPv6 DNS，并设置通告默认网关。<br />启用本插件前需执行一次，配置完毕后会重启一次网络，稍等片刻网络恢复再进行设置")
 function init.write(self, section)
     io.popen("/etc/init.d/nat6-helper setLan")
 end
